@@ -1,6 +1,7 @@
 <script setup lang="ts">
+const { signOut } = useAuth()
 async function logout() {
-    console.log('LOGOUT')
+    signOut({ callbackUrl: '/' })
 }
 </script>
 

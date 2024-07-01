@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { SessionData } from '#auth';
+
 function handleKeyDown(event: KeyboardEvent) {
 
 const shortkeys: Record<string, () => void> = {
@@ -17,6 +19,12 @@ window.addEventListener('keydown', handleKeyDown);
 onUnmounted(() => {
 window.removeEventListener('keydown', handleKeyDown);
 });
+interface User {
+    username: string,
+}
+
+const { data }: { data: { value: User | undefined | null | SessionData }} = useAuth()
+const user: { username: string } = { username: (data.value as User).username  }
 </script>
 
 <template>
@@ -24,7 +32,7 @@ window.removeEventListener('keydown', handleKeyDown);
         <div class="flex gap-10 bg-gradient-to-tr from-[#9c16e3] to-[#1866fd] p-10 rounded-r-3xl text-white">
             <div class="border-r pr-10 border-r-white">
                 <p class="font-bold">OPERADOR</p>
-                <p><i>Lucas Vinicius</i></p>
+                <p><i>{{ user.username }}</i></p>
             </div>
             <div>
                 <p class="font-bold">PEDIDOS EM ABERTO</p>

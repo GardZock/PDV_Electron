@@ -2,6 +2,7 @@
 import { object, string, type InferType } from 'yup'
 import type { FormSubmitEvent } from '#ui/types'
 
+const toast = useToast()
 const { signIn } = useAuth()
 
 const schema = object({
@@ -24,8 +25,8 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
     }
 
     try {
-      await signIn(credentials, { callbackUrl: "/pdv" })
-      alert('Logado com sucesso!')
+      await signIn(credentials, { callbackUrl: "/" })
+      onMounted(() => {toast.add({ title: "Logado com sucesso!" })})
     } catch (error) {
       console.error(error)
     }
