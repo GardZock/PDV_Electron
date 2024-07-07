@@ -25,5 +25,5 @@
     "vite-plugin-electron": "^0.28.7",
     "vite-plugin-electron-renderer": "^0.14.5"
   },
-  "packageManager": "pnpm@7.33.7+sha512.7afe2410642b39c698df46da4ce5c7231a5cce360698d69f8cf8f42257d40b3e43f231053b07b8de849fd4ffbf4a71ff57b835137777a352388f3d3da747200e"
+  "packageManager": "pnpm@9.4.0+sha1.9217c800d4ab947a7aee520242a7b70d64fc7638"
 }
